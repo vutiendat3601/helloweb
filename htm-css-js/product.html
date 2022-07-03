@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #thumb {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        #thumb div img:hover {
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function init() {
+            var btns = document.querySelectorAll(".thumb-img img")
+            console.log(btns)
+            var mainImg = document.getElementById("main-img")
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].onclick = function () {
+                    mainImg.src = this.src
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload="init()">
+    <div id="main">
+        <div>
+            <h1 style="color: red;">main image</h1>
+            <img id="main-img" width="480"
+                src="https://cdn.tgdd.vn/Products/Images/42/235838/samsung-galaxy-s22-ultra-xanh-reu-1-1.jpg">
+        </div>
+        <div id="thumb">
+            <div class="thumb-img thumb-img1"><img
+                    src="https://cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Burgundy-200x200.jpg" alt="red">
+            </div>
+            <div class="thumb-img thumb-img2"><img
+                    src="https://cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-White-200x200.jpg" alt="white">
+            </div>
+            <div class="thumb-img thumb-img3"><img
+                    src="https://cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Black-200x200.jpg" alt="black">
+            </div>
+            <div class="thumb-img thumb-img4"><img
+                    src="https://cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Green-200x200.jpg" alt="green">
+            </div>
+        </div>
+
+        <div id="footer"><button onclick="show()">show</button></div>
+    </div>
+
+    <script>
+        function changeImg(obj) {
+            document.getElementById("main-img").src = obj.src;
+        }
+        function show() {
+            var footer = document.getElementById("footer");
+            // footer.innerHTML = "<h1>Hello cac ban, minh la Toi Di Code Dao</h1>"
+            footer.innerHTML = "";
+            var q = document.createElement("h1")
+            q.setAttribute("style", "color: red; font-size: 20px;")
+            q.innerText = "Hello cac ban, Minh la Toi di code dao!"
+            footer.appendChild(q)
+        }
+    </script>
+</body>
+
+</html>
